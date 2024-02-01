@@ -14,7 +14,7 @@ class Predictor(BasePredictor):
     def setup(self):
         """Loads whisper models into memory to make running multiple predictions efficient"""
         self.model_cache = "model_cache"
-        model_id="distil-whisper/distil-small.en"
+        model_id="distil-whisper/distil-medium.en"
         torch_dtype = torch.float16
         self.device = "cuda:0"
         model = WhisperForConditionalGeneration.from_pretrained(
@@ -53,5 +53,4 @@ class Predictor(BasePredictor):
             batch_size=batch_size,
             return_timestamps=True,
         )
-        print("Voila!✨ Your file has been transcribed!")
         return outputs
