@@ -14,7 +14,8 @@ class Predictor(BasePredictor):
     def setup(self):
         """Loads whisper models into memory to make running multiple predictions efficient"""
         self.model_cache = "model_cache"
-        model_id="distil-whisper/distil-medium.en"
+            # model_id="distil-whisper/distil-medium.en"
+        model_id="distil-whisper/distil-large-v2"
         torch_dtype = torch.float16
         self.device = "cuda:0"
         model = WhisperForConditionalGeneration.from_pretrained(
